@@ -1,5 +1,9 @@
 const path = require('path')
 
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
   publicPath: '/',
   outputDir: 'dist',
@@ -14,9 +18,11 @@ module.exports = {
       errors: true
     }
   },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src')
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@': resolve('src')
+      }
     }
   }
 }
