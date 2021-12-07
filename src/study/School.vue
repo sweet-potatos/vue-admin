@@ -1,18 +1,18 @@
 <template>
   <div>
     <h1 id="title-dom" ref="title-ref">测试</h1>
-    <button id="btn-dom" ref="btn-ref" @click="showDOM">点击事件</button>
-    <People id="people-dom" />
-    <People ref="people-ref" />
+    <button id="btn-dom" ref="btn-ref" @click="showDOM">点击展示DOM</button>
+    <Student id="people-dom" />
+    <Student ref="people-ref" />
   </div>
 </template>
 
 <script>
-import People from './components/People.vue'
+import Student from './components/Student.vue'
 
 export default {
   name: 'School',
-  components: { People },
+  components: { Student },
   data() {
     return {
       name: '东风南方',
@@ -38,4 +38,12 @@ export default {
     }
   }
 }
+
+/*
+  1.被用来给元素或子组件注册引用信息(id的替代者)
+  2.应用在html标签上获取的是真实的DOM元素，应用在组件标签上是组件实例对象(vc)
+  3.使用方式:
+    打标识: <h1 ref="xxx">...</h1> 或 <School ref="xxx" />
+    获取: this.$ref.xxx
+*/
 </script>
